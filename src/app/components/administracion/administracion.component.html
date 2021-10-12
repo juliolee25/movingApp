@@ -1,0 +1,255 @@
+<div style="margin-top: 5rem;">
+<div class="card">
+    <h5>Tooltips</h5>
+    <p-tabView>
+        <p-tabPanel header="Configure Box" leftIcon="pi pi-briefcase">
+            <div>
+                <h5>Box Editing</h5>
+                
+                    <p-table [value]="boxArray" dataKey="id" editMode="row" responsiveLayout="scroll">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>name</th>
+                                <th>price</th>
+                                <th>hight</th>
+                                <th>with</th>
+                                <th>depth</th>
+                                <th>packing price</th>
+                                <th style="width:6rem"></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-box let-editingBox="editingBox" let-ri="rowIndex">
+                            <tr [pEditableRow]="box">
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.name">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.name}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.price" required>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.price | currency: 'USD'}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.hight" required>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.hight}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.with" required>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.with}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.depth" required>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.depth}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="box.packing" required>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{box.packing | currency: 'USD'}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                              
+                                <td style="text-align:center">
+                                    <button *ngIf="!editingBox" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInitBox(box)" class="p-button-rounded p-button-text"></button>
+                                    <button *ngIf="editingBox" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSaveBox(box)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                                    <button *ngIf="editingBox" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancelBox(box)" class="p-button-rounded p-button-text p-button-danger"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    
+            </div>   
+        </p-tabPanel>
+        <p-tabPanel header="Configure Van" leftIcon="pi pi-ellipsis-h">
+            <div class="card">
+                <div>
+                    <h5>Van Editing</h5>
+                    
+                        <p-table [value]="vanArray" dataKey="id" editMode="row" responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>name</th>
+                                    <th>price</th>
+                                    <th>hight</th>
+                                    <th>with</th>
+                                    <th>depth</th>                                    
+                                    <th style="width:6rem"></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-van let-editingVan="editingVan" let-ri="rowIndex">
+                                <tr [pEditableRow]="van">
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="van.name">
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{van.name}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="van.price" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{van.price | currency: 'USD'}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="van.hight" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{van.hight}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="van.with" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{van.with}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="van.depth" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{van.depth}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    
+                                  
+                                    <td style="text-align:center">
+                                        <button *ngIf="!editingVan" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInitVan(van)" class="p-button-rounded p-button-text"></button>
+                                        <button *ngIf="editingVan" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSaveVan(van)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                                        <button *ngIf="editingVan" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancelVan(van)" class="p-button-rounded p-button-text p-button-danger"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                </div> 
+            </div>
+
+        </p-tabPanel>
+        <p-tabPanel header="Configure Helper" leftIcon="pi pi-user-edit">
+            <div class="card">
+                <div>
+                    <h5>Helper Editing</h5>
+                    
+                        <p-table [value]="helperArray" dataKey="id" editMode="row" responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>name</th>
+                                    <th>price</th>
+                                    <th>cantidad</th>
+                                    <th>description</th>
+                                                                       
+                                    <th style="width:6rem"></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-helper let-editinghelper="editinghelper" let-ri="rowIndex">
+                                <tr [pEditableRow]="helper">
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="helper.name">
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{helper.name}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="helper.price" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{helper.price | currency: 'USD'}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="helper.cantidad" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{helper.cantidad}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    <td>
+                                        <p-cellEditor>
+                                            <ng-template pTemplate="input">
+                                                <input pInputText type="text" [(ngModel)]="helper.description" required>
+                                            </ng-template>
+                                            <ng-template pTemplate="output">
+                                                {{helper.description}}
+                                            </ng-template>
+                                        </p-cellEditor>
+                                    </td>
+                                    
+                                    
+                                  
+                                    <td style="text-align:center">
+                                        <button *ngIf="!editinghelper" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInitHelper(helper)" class="p-button-rounded p-button-text"></button>
+                                        <button *ngIf="editinghelper" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSaveHelper(helper)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                                        <button *ngIf="editinghelper" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancelHelper(helper)" class="p-button-rounded p-button-text p-button-danger"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                </div> 
+            </div>
+
+        </p-tabPanel>
+        
+    </p-tabView>
+    </div>
+</div>    

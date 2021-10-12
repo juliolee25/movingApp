@@ -1,48 +1,53 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { MainComponent } from './components/main/main.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { SupportComponent } from './components/support/support.component';
-import { FooterComponent } from './components/footer/footer.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms'
+import {TableModule} from 'primeng/table';
+import {CalendarModule} from 'primeng/calendar';
+import {TabViewModule} from 'primeng/tabview';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
+
+import {PaginatorModule} from 'primeng/paginator';
+import { TagModule } from 'primeng/tag';
+import {CardModule} from 'primeng/card';
+import {ChartModule} from 'primeng/chart';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
-import { UserMainComponent } from './components/user-main/user-main.component';
-import { ServiceComponent } from './components/service/service.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { SettingsComponent } from './components/settings/settings.component';
-import { CajasventaComponent } from './components/cajasventa/cajasventa.component';
-import { DriverComponent } from './components/driver/driver.component';
-import { VehiculoComponent } from './components/vehiculo/vehiculo.component';
-import { AdressComponent } from './components/adress/adress.component';
+import { AdministracionComponent } from './components/administracion/administracion.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    MainComponent,
-    FaqComponent,
-    SupportComponent,
-    FooterComponent,
-    LoginComponent,
-    UserMainComponent,
-    ServiceComponent,
-    ContactComponent,
-    SettingsComponent,
-    CajasventaComponent,
-    DriverComponent,
-    VehiculoComponent,
-    AdressComponent
+    AppComponent,    
+    NavBarComponent, LoginComponent, AdministracionComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,    
+    TagModule,
+    ChartModule,
+    CardModule,
+    InputTextModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    TableModule,
+    PaginatorModule,
+    TabViewModule,
+    CalendarModule,
+    NgbModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
