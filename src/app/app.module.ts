@@ -22,13 +22,15 @@ import { LoginComponent } from './components/login/login.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,    
-    NavBarComponent, LoginComponent, AdministracionComponent
+    NavBarComponent, LoginComponent, AdministracionComponent, HomeComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
